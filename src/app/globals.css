@@ -1,0 +1,147 @@
+@import "tailwindcss";
+
+@layer base {
+  /* LIGHT THEME — Luminous Platinum Silver, Deep Aubergine, Warm Marigold & Pearlescent Lavender */
+  :root,
+  [data-theme="light"],
+  html:not(.dark) {
+    --bg-canvas: #DFE4E9;               /* Luminous Platinum Silver background */
+    --bg-surface: #E8ECEF;              /* Translucent glass laboratory surface */
+    --bg-surface-elevated: #F2F5F8;     /* Elevated pure platinum */
+    --bg-subtle: #D5DBE1;               /* Subdued neutral underlay */
+    
+    --border-subtle: rgba(58, 15, 52, 0.12); /* Delicate aubergine border */
+    --border-default: #C1CAD3;          /* Standard platinum border */
+    --border-hover: #3A0F34;            /* Deep Aubergine hover accent */
+    
+    --text-primary: #2B0A26;            /* Deep Aubergine principal text */
+    --text-secondary: #58334E;          /* Muted aubergine / brownish-purple */
+    --text-muted: #6E5D6A;              /* Sophisticated brownish-purple neutral */
+    --text-signature: #685328;          /* Complementary darker champagne-gold metallic tone */
+    
+    --accent-primary: #4A0E35;          /* Deep Plum / Rich Burgundy */
+    --accent-primary-text: #F2F4F7;     /* Warm platinum on Plum */
+    --accent-primary-hover: #320523;    /* Darker plum */
+    
+    --accent-highlight: #C88A14;        /* Warm Gold accent */
+    --accent-highlight-text: #2B0A26;   /* Plum on Gold */
+    --accent-lavender: #8E7F9B;         /* Pearlescent lavender */
+    --accent-subtle: rgba(200, 138, 20, 0.14);
+    
+    --gold-hover: #A07418;              /* Elegant golden hover tone (Light) */
+    --gold-active: #8A6210;             /* Persistent golden active tone (Light) */
+    --gold-glow: rgba(160, 116, 24, 0.22);
+    --gold-border: rgba(160, 116, 24, 0.45);
+    
+    --shadow-soft: 0 4px 14px rgba(58, 15, 52, 0.05);
+    --shadow-elevated: 0 14px 34px -8px rgba(58, 15, 52, 0.09), 0 0 20px rgba(224, 218, 234, 0.25);
+  }
+
+  /* DARK THEME — Near-Black Foundation with Platinum/Icy-Lavender & Vivid Crimson Accents */
+  html.dark,
+  [data-theme="dark"] {
+    --bg-canvas: #020408;               /* Near-black foundation (looks black first, not blue) */
+    --bg-surface: #060810;              /* Secondary dark surface with subtle aubergine/midnight undertone */
+    --bg-surface-elevated: #0C101A;     /* Subtle laboratory surface */
+    --bg-subtle: #04050A;               /* Deep underlay */
+    
+    --border-subtle: rgba(200, 206, 232, 0.09); /* Subtle icy-lavender boundary */
+    --border-default: #141722;          /* Standard dark boundary */
+    --border-hover: #C8CEE8;            /* Icy-lavender hover boundary */
+    
+    --text-primary: #F8F8FC;            /* Clean ivory-white primary text */
+    --text-secondary: #A2A9BC;          /* Platinum-lavender gray */
+    --text-muted: #5E6578;              /* Subtle muted tone */
+    --text-signature: #E5DEC9;          /* Silver-gold champagne metallic tone (soft platinum + warm gold) */
+    
+    --accent-primary: #C8CEE8;          /* Icy Lavender */
+    --accent-primary-text: #04060C;     /* Dark contrast text on Icy Lavender */
+    --accent-primary-hover: #E2E7ED;    /* Platinum-silver hover */
+    
+    --accent-platinum: #E2E7ED;         /* Platinum Silver */
+    --accent-lavender: #C8CEE8;         /* Icy Lavender */
+    --accent-highlight: #E50027;        /* Deep, rich, luminous blood-red / crimson (intense & glowing) */
+    --accent-highlight-text: #FFFFFF;   /* White text on Crimson */
+    --accent-subtle: rgba(200, 206, 232, 0.12);
+
+    --gold-hover: #E8D4AE;              /* Elegant champagne-gold hover tone (Dark) */
+    --gold-active: #F0DEBE;             /* Persistent champagne-gold active tone (Dark) */
+    --gold-glow: rgba(232, 212, 174, 0.28);
+    --gold-border: rgba(232, 212, 174, 0.45);
+
+    --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.75);
+    --shadow-elevated: 0 16px 48px -8px rgba(0, 0, 0, 0.9), 0 0 24px rgba(200, 206, 232, 0.04);
+  }
+}
+
+/* Typography Utility Classes */
+.font-editorial {
+  font-family: var(--font-editorial), "Cormorant Garamond", Georgia, serif;
+}
+
+.font-script {
+  font-family: var(--font-script), "Alex Brush", "Pinyon Script", "Italianno", cursive;
+}
+
+.font-sans {
+  font-family: var(--font-sans), "Manrope", system-ui, -apple-system, sans-serif;
+}
+
+.font-mono {
+  font-family: var(--font-mono), monospace;
+}
+
+/* Atmospheric Background Vignette & Glass Laboratory Texture */
+.atmospheric-bg {
+  background-color: var(--bg-canvas);
+  background-image: 
+    radial-gradient(circle at 75% 35%, rgba(60, 27, 56, 0.18) 0%, rgba(20, 24, 38, 0.15) 35%, rgba(2, 4, 8, 0) 70%),
+    linear-gradient(rgba(200, 206, 232, 0.012) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200, 206, 232, 0.012) 1px, transparent 1px);
+  background-size: 100% 100%, 56px 56px, 56px 56px;
+}
+
+html:not(.dark) .atmospheric-bg,
+[data-theme="light"] .atmospheric-bg {
+  background-color: var(--bg-canvas);
+  background-image: 
+    radial-gradient(ellipse at 75% 35%, rgba(246, 248, 252, 0.85) 0%, rgba(235, 228, 240, 0.45) 45%, rgba(223, 228, 233, 0) 75%),
+    linear-gradient(rgba(58, 15, 52, 0.016) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(58, 15, 52, 0.016) 1px, transparent 1px);
+  background-size: 100% 100%, 56px 56px, 56px 56px;
+}
+
+/* Base Body Styles */
+body {
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  transition: background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-canvas);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-default);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-primary);
+}
+
+/* Accessible Focus States with Golden Highlight */
+:focus-visible {
+  outline: 2px solid var(--gold-hover);
+  outline-offset: 2px;
+}
